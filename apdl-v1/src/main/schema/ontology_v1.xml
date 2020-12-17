@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ontology>
+    <category>
+        <name>indoor-club-volleyball-girls</name>
+        <activityCategories>
+            <category>parent-meeting</category>
+            <category>uniform-fitting</category>
+            <category>team-bonding</category>
+            <category>practice</category>
+            <category>tournament</category>
+        </activityCategories>
+        <contactRoles>
+            <role>creator</role>
+            <role>head-coach</role>
+            <role>assistant-coach</role>
+            <role>team-parent</role>
+        </contactRoles>
+    </category>
+</ontology>

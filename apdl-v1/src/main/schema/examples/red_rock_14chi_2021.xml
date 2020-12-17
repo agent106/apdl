@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<apdl:plan xmlns:apdl="http://apdl.info/APDL/v1"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://apdl.info/APDL/v1 ../apdl_v1.xsd">
+
+    <name>Red Rock 14 Chi 2021</name>
+    <description>
+        [<![CDATA[
+            Read Rock 14 Chi Season 2020-2021 Team Plan
+            Team planning doc:
+            https://docs.google.com/spreadsheets/d/1j1VOZuDp6xsI-1ESVyZEAslHVOtxs1L2dY6FRhj4ziA/edit#gid=0
+        ]]>
+    </description>
+    <uri>redrockvolleyball.com/plan/Indoor/Girls/2021/14/Chi</uri>
+    <version>1</version>
+    <timestamp>2020-12-10T17:00:00</timestamp>
+    <contactInfo>
+        <contact>
+            <name>Agent One</name>
+            <email>agent106@somewhere.com</email>
+            <role>creator</role>
+        </contact>
+        <contact>
+            <name>Chi Chui</name>
+            <phone>408-373-2441</phone>
+            <email>chi.chui@me.com</email>
+            <role>head-coach</role>
+        </contact>
+        <contact>
+            <name>Monika Leon</name>
+            <phone>510-340-0840</phone>
+            <email>Monikaleon10@gmail.com</email>
+            <role>assistant-coach</role>
+        </contact>
+        <contact>
+            <name>Karen Tsai</name>
+            <phone>650-391-7022</phone>
+            <email>hytsai111@gmail.com</email>
+            <role>team-parent</role>
+        </contact>
+    </contactInfo>
+    <categories>
+        <category>indoor-club-volleyball-girls</category>
+    </categories>
+    <dictionary>
+        <locations>
+            <location>
+                <name>SportsHouse</name>
+                <address>3151 Edison Way, Redwood City, CA 94063, USA</address>
+                <weblink>https://www.sportshouse.us</weblink>
+                <phone>+1 (650) 362-4100</phone>
+                <id>SportsHouse</id>
+            </location>
+        </locations>
+    </dictionary>
+    <activities>
+
+        <activityGroup name="Uniform fitting" requirement="one" >
+            <event>
+                <id>event1</id>
+                <name>Uniform fitting 1</name>
+                <categories>
+                    <category>uniform_fitting</category>
+                </categories>
+                <date>
+                    <fixed>2020-11-21</fixed>
+                </date>
+                <startTime>
+                    <exactlyAt>17:00:00</exactlyAt>
+                </startTime>
+                <duration>90</duration>
+                <locationRef>SportsHouse</locationRef>
+            </event>
+
+            <event>
+                <id>event2</id>
+                <name>Uniform fitting 2</name>
+                <categories>
+                    <category>uniform_fitting</category>
+                </categories>
+                <date>
+                    <fixed>2020-11-23</fixed>
+                </date>
+                <startTime>
+                    <exactlyAt>18:00:00</exactlyAt>
+                </startTime>
+                <duration>90</duration>
+                <locationRef>SportsHouse</locationRef>
+            </event>
+        </activityGroup>
+
+        <activityGroup requirement="zeroOrMore">
+            <event>
+                <id>event3</id>
+                <name>Team bonding event</name>
+                <categories>
+                    <category>team_bonding</category>
+                </categories>
+                <date>
+                    <fixed>2020-12-03</fixed>
+                </date>
+                <startTime>
+                    <exactlyAt>19:00:00</exactlyAt>
+                </startTime>
+                <duration>40</duration>
+                <virtualConference>
+                    <url>https://us05web.zoom.us/j/84064771443?pwd=c3c5SHZQUjAwRVJIaWd3T243d21JZz09</url>
+                </virtualConference>
+            </event>
+        </activityGroup>
+
+        <activityGroup name="Practices" requirement="all">
+            <event>
+                <id>event5</id>
+                <name>Week day practice</name>
+                <categories>
+                    <category>practice</category>
+                </categories>
+                <date>
+                    <weekly>
+                        <beginDate>2020-11-20</beginDate>
+                        <endDate>2021-06-01</endDate>
+                        <daysOfWeek>
+                            <tuesday/>
+                            <thursday/>
+                        </daysOfWeek>
+                    </weekly>
+                </date>
+                <startTime>
+                    <exactlyAt>17:45:00</exactlyAt>
+                </startTime>
+                <duration>120</duration>
+                <locationRef>SportsHouse</locationRef>
+            </event>
+
+            <event>
+                <id>event6</id>
+                <name>Weekend practice</name>
+                <categories>
+                    <category>practice</category>
+                </categories>
+                <date>
+                    <weekly>
+                        <beginDate>2020-11-20</beginDate>
+                        <endDate>2021-06-01</endDate>
+                        <daysOfWeek>
+                            <sunday/>
+                        </daysOfWeek>
+                    </weekly>
+                </date>
+                <startTime>
+                    <exactlyAt>17:30:00</exactlyAt>
+                </startTime>
+                <duration>90</duration>
+                <locationRef>SportsHouse</locationRef>
+            </event>
+        </activityGroup>
+
+        <activityGroup name="Tournaments" requirement="all">
+
+            <activityGroup name="Preparation for SCVA Red Rock Rave #2" requirement="zeroOrMore">
+                <task>
+                    <id>task1</id>
+                    <name>Book hotel for SCVA Red Rock Rave #2</name>
+                    <notes>
+                        <note>
+                            [<![CDATA[
+                                Your team is scheduled to be competing at the SCVA Red Rock Rave #2 in April 2021 and I wanted to provide a reminder that hotels will be going live for reservations on Tuesday (Groups) 7am PST or Friday at 7am PST (Individual reservations) via the housing agency for the tournament, KC Sportshousing.
+
+                                *** Please note - we are following up with NCVA - as currently there is a conflict with Far Westerns slated to be at the same time as this tournament for this age group. With SCVA Qualifier hotel reservations taking place next week, I did want to provide you with a reminder. These reservations are cancellable within 30 days of the tournament, and I would advise looking for the same regarding flights. ***
+
+                                RED ROCK RAVE #2
+                                What - SCVA Qualifier - Red Rock Rave #2
+                                When - April 16, 17, 18
+                                Hotel Dates - Check in would be on April 15 and check out on April 18
+                                Where - Tournament Location - Mandalay Bay Convention Center, Las Vegas
+
+                                Families are responsible for their own hotel bookings.
+                            ]]>
+                        </note>
+                        <note>
+                            <![CDATA[
+                                1) Follow the hotel booking link. Enter the Access Code and hit “Make a Reservation” (See link and access code below)
+                                   Please be advised that emails ending in .NET are blocking the hotel system’s emails. We highly recommend using a .COM email address or taking a picture of your confirmation.
+                                2) Follow through the prompts until you get to where you enter your personal information. When asked for Club/Team Code, please enter the code JUST AS IT IS LISTED BELOW or your reservation may be cancelled and/or will not count towards the Support the Sport – Stay and Play Policy.
+                                3) Please complete all necessary information and ensure you receive a confirmation email directly from the hotel.
+                                    a. The credit card provided will be charged a one-night deposit (plus taxes) for each individual room booked. If the card holder responsible for all charges covered by this agreement will not be present at check-in, you must fill out the hotel’s credit card authorization form PRIOR to your arrival date. Please contact KC Sports Housing if you are in need of this form.
+                                    b. The name provided for check-in will be the ONLY individual allowed to check-in at the hotel. Please ensure they are over 21 and someone is over 21 in every room.
+
+                                    Tournament: Red Rock Rave – JNQ #2
+                                    Hotel: Delano
+                                    Booking Link: https://book.passkey.com/e/50154163
+                                    Access Code: RRRDL0421
+                                    Number of Rooms on Hold: 12 rooms
+                                    Club/Team Code: REDROCK14CHITSAI12
+                                    Cut-off Date (BOOK BY DATE): Tuesday, January 5th, 2021
+                            ]]>
+                        </note>
+                    </notes>
+                </task>
+                <task>
+                    <id>task2</id>
+                    <name>Book flight for SCVA Red Rock Rave #2</name>
+                </task>
+            </activityGroup>
+
+            <event>
+                <id>event7</id>
+                <name>SCVA Red Rock Rave #2</name>
+                <categories>
+                    <category>tournament</category>
+                </categories>
+                <notes>
+                    <note>
+                        <![CDATA[
+                            Results and info can be found at
+                            https://results.tm2sign.com
+                            https://ncva.com/girls-division/
+                        ]]>
+                    </note>
+                </notes>
+                <date>
+                    <daily>
+                        <beginDate>2021-04-16</beginDate>
+                        <endDate>2021-04-18</endDate>
+                    </daily>
+                </date>
+                <location>
+                    <name>Mandalay Bay Convention Center</name>
+                    <address>Mandalay Bay Convention Center, Las Vegas</address>
+                </location>
+            </event>
+        </activityGroup>
+    </activities>
+
+</apdl:plan>

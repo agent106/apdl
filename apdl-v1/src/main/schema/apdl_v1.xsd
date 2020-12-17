@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:apdl="http://apdl.info/APDL/v1"
+           targetNamespace="http://apdl.info/APDL/v1">
+
+    <xs:simpleType name="ActivityRequirementType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="all" />
+            <xs:enumeration value="one" />
+            <xs:enumeration value="oneOrMore" />
+            <xs:enumeration value="zeroOrOne" />
+            <xs:enumeration value="zeroOrMore" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="LocationType">
+        <xs:sequence>
+            <xs:element name="name" type="xs:string" />
+            <xs:element name="address" type="xs:string" minOccurs="0" />
+            <xs:element name="weblink" type="xs:string" minOccurs="0" />
+            <xs:element name="phone" type="xs:string" minOccurs="0" />
+            <xs:element name="comments" type="xs:string" minOccurs="0" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="VirtualConferenceType">
+        <xs:sequence>
+            <xs:element name="url" type="xs:string" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="PersonType">
+        <xs:sequence>
+            <xs:element name="name" type="xs:string" />
+            <xs:element name="phone" type="xs:string" minOccurs="0" />
+            <xs:element name="email" type="xs:string" minOccurs="0" />
+            <xs:element name="additionalInfo" type="xs:string" minOccurs="0" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="ActivityTypeBase">
+        <xs:sequence>
+            <xs:element name="id" type="xs:anyURI" />
+            <xs:element name="requires" type="xs:anyURI" minOccurs="0" maxOccurs="unbounded" />
+            <xs:element name="name" type="xs:string" />
+            <xs:element name="categories" minOccurs="0">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="category" type="xs:string" maxOccurs="unbounded"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="details" type="xs:string" minOccurs="0" />
+            <xs:element name="notes" minOccurs="0">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="note" type="xs:string" maxOccurs="unbounded"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="TaskType">
+        <xs:complexContent>
+            <xs:extension base="apdl:ActivityTypeBase">
+                <xs:sequence>
+                    <xs:element name="deadline" type="xs:dateTime" minOccurs="0" />
+                    <xs:element name="priority" minOccurs="0">
+                        <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                                <xs:enumeration value="critical" />
+                                <xs:enumeration value="important" />
+                                <xs:enumeration value="low" />
+                            </xs:restriction>
+                        </xs:simpleType>
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="EventType">
+        <xs:complexContent>
+            <xs:extension base="apdl:ActivityTypeBase">
+                <xs:sequence>
+                    <xs:element name="date">
+                        <xs:complexType>
+                            <xs:choice>
+                                <xs:element name="fixed" type="xs:date" />
+                                <xs:element name="weekly">
+                                    <xs:complexType>
+                                        <xs:sequence>
+                                            <xs:element name="beginDate" type="xs:date" minOccurs="0"/>
+                                            <xs:element name="endDate" type="xs:date" minOccurs="0" />
+                                            <xs:element name="daysOfWeek" minOccurs="0">
+                                                <xs:complexType>
+                                                    <xs:choice maxOccurs="unbounded">
+                                                        <xs:element name="sunday" />
+                                                        <xs:element name="monday" />
+                                                        <xs:element name="tuesday" />
+                                                        <xs:element name="wednesday" />
+                                                        <xs:element name="thursday" />
+                                                        <xs:element name="friday" />
+                                                        <xs:element name="saturday" />
+                                                    </xs:choice>
+                                                </xs:complexType>
+                                            </xs:element>
+                                        </xs:sequence>
+                                    </xs:complexType>
+                                </xs:element>
+                                <xs:element name="daily">
+                                    <xs:complexType>
+                                        <xs:sequence>
+                                            <xs:element name="beginDate" type="xs:date" minOccurs="0"/>
+                                            <xs:element name="endDate" type="xs:date" minOccurs="0" />
+                                        </xs:sequence>
+                                    </xs:complexType>
+                                </xs:element>
+                            </xs:choice>
+                        </xs:complexType>
+                    </xs:element>
+                    <xs:element name="startTime" minOccurs="0">
+                        <xs:complexType>
+                            <xs:choice>
+                                <xs:element name="exactlyAt" type="xs:time" />
+                                <xs:element name="around" type="xs:time" />
+                                <xs:element name="between">
+                                    <xs:complexType>
+                                        <xs:sequence>
+                                            <xs:element name="from" type="xs:time" />
+                                            <xs:element name="to" type="xs:time" />
+                                        </xs:sequence>
+                                    </xs:complexType>
+                                </xs:element>
+                            </xs:choice>
+                        </xs:complexType>
+                    </xs:element>
+                    <xs:element name="duration" type="xs:integer" minOccurs="0" />
+                    <xs:choice minOccurs="0">
+                        <xs:element name="location" type="apdl:LocationType" minOccurs="0" />
+                        <xs:element name="locationRef" type="xs:string" />
+                    </xs:choice>
+                    <xs:element name="virtualConference" type="apdl:VirtualConferenceType" minOccurs="0" />
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="ActivitiesType">
+        <xs:choice maxOccurs="unbounded" minOccurs="0">
+            <xs:element name="task" type="apdl:TaskType" />
+            <xs:element name="event" type="apdl:EventType" />
+            <xs:element name="activityGroup" type="apdl:ActivityGroupType" minOccurs="0" maxOccurs="unbounded" />
+        </xs:choice>
+    </xs:complexType>
+
+    <xs:complexType name="ActivityGroupType">
+        <xs:complexContent>
+            <xs:extension base="apdl:ActivitiesType">
+                <xs:attribute name="id" type="xs:string" />
+                <xs:attribute name="name" type="xs:string" />
+                <xs:attribute name="requirement" type="apdl:ActivityRequirementType"/>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="ContactInfoType">
+        <xs:sequence>
+            <xs:element name="contact" maxOccurs="unbounded">
+                <xs:complexType>
+                    <xs:complexContent>
+                        <xs:extension base="apdl:PersonType">
+                            <xs:sequence>
+                                <xs:element name="role" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+                            </xs:sequence>
+                        </xs:extension>
+                    </xs:complexContent>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+
+    </xs:complexType>
+
+    <xs:element name="plan">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="name" type="xs:string" />
+                <xs:element name="description" type="xs:string" minOccurs="0" />
+                <xs:element name="uri" type="xs:string" />
+                <xs:element name="version" type="xs:string" />
+                <xs:element name="timestamp" type="xs:dateTime" />
+                <xs:element name="contactInfo" type="apdl:ContactInfoType" minOccurs="0" />
+                <xs:element name="categories">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="category" type="xs:string" maxOccurs="unbounded"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="dictionary">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="locations" minOccurs="0">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="location">
+                                            <xs:complexType>
+                                                <xs:complexContent>
+                                                    <xs:extension base="apdl:LocationType">
+                                                        <xs:sequence>
+                                                            <xs:element name="id" type="xs:string" />
+                                                        </xs:sequence>
+                                                    </xs:extension>
+                                                </xs:complexContent>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="activities" type="apdl:ActivitiesType" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
