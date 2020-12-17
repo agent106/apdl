@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-           xmlns:apdl="http://apdl.info/APDL/v1"
-           targetNamespace="http://apdl.info/APDL/v1">
+           xmlns:apdl="http://apdl.org/APDL/v1"
+           targetNamespace="http://apdl.org/APDL/v1">
 
     <xs:simpleType name="ActivityRequirementType">
         <xs:restriction base="xs:string">

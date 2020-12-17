@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<apdl:plan xmlns:apdl="http://apdl.info/APDL/v1"
+<apdl:plan xmlns:apdl="http://apdl.org/APDL/v1"
            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-           xsi:schemaLocation="http://apdl.info/APDL/v1 ../apdl_v1.xsd">
+           xsi:schemaLocation="http://apdl.org/APDL/v1 ../apdl_v1.xsd">
 
     <name>Red Rock 14 Chi 2021</name>
     <description>
