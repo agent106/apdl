@@ -168,20 +168,23 @@
     </xs:complexType>
 
     <xs:complexType name="ContactInfoType">
-        <xs:sequence>
-            <xs:element name="contact" maxOccurs="unbounded">
-                <xs:complexType>
-                    <xs:complexContent>
-                        <xs:extension base="apdl:PersonType">
-                            <xs:sequence>
-                                <xs:element name="role" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
-                            </xs:sequence>
-                        </xs:extension>
-                    </xs:complexContent>
-                </xs:complexType>
-            </xs:element>
-        </xs:sequence>
+        <xs:complexContent>
+            <xs:extension base="apdl:PersonType">
+                <xs:sequence>
+                    <xs:element name="role" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
 
+    <xs:complexType name="LocationInfoType">
+        <xs:complexContent>
+            <xs:extension base="apdl:LocationType">
+                <xs:sequence>
+                    <xs:element name="id" type="xs:string" />
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
     </xs:complexType>
 
     <xs:element name="plan">
@@ -192,7 +195,13 @@
                 <xs:element name="uri" type="xs:string" />
                 <xs:element name="version" type="xs:string" />
                 <xs:element name="timestamp" type="xs:dateTime" />
-                <xs:element name="contactInfo" type="apdl:ContactInfoType" minOccurs="0" />
+                <xs:element name="contacts" minOccurs="0">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="contact" type="apdl:ContactInfoType" maxOccurs="unbounded" />
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
                 <xs:element name="categories">
                     <xs:complexType>
                         <xs:sequence>
@@ -203,17 +212,7 @@
                 <xs:element name="locations" minOccurs="0">
                     <xs:complexType>
                         <xs:sequence>
-                            <xs:element name="location">
-                                <xs:complexType>
-                                    <xs:complexContent>
-                                        <xs:extension base="apdl:LocationType">
-                                            <xs:sequence>
-                                                <xs:element name="id" type="xs:string" />
-                                            </xs:sequence>
-                                        </xs:extension>
-                                    </xs:complexContent>
-                                </xs:complexType>
-                            </xs:element>
+                            <xs:element name="location" type="apdl:LocationInfoType" maxOccurs="unbounded" />
                         </xs:sequence>
                     </xs:complexType>
                 </xs:element>

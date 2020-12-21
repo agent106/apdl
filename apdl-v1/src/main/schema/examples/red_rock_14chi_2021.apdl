@@ -14,7 +14,7 @@
     <uri>redrockvolleyball.com/plan/Indoor/Girls/2021/14/Chi</uri>
     <version>1</version>
     <timestamp>2020-12-10T17:00:00</timestamp>
-    <contactInfo>
+    <contacts>
         <contact>
             <name>Agent One</name>
             <email>agent106@somewhere.com</email>
@@ -38,7 +38,7 @@
             <email>hytsai111@gmail.com</email>
             <role>team-parent</role>
         </contact>
-    </contactInfo>
+    </contacts>
     <categories>
         <category>indoor-club-volleyball-girls</category>
     </categories>
