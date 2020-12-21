@@ -42,17 +42,15 @@
     <categories>
         <category>indoor-club-volleyball-girls</category>
     </categories>
-    <dictionary>
-        <locations>
-            <location>
-                <name>SportsHouse</name>
-                <address>3151 Edison Way, Redwood City, CA 94063, USA</address>
-                <weblink>https://www.sportshouse.us</weblink>
-                <phone>+1 (650) 362-4100</phone>
-                <id>SportsHouse</id>
-            </location>
-        </locations>
-    </dictionary>
+    <locations>
+        <location>
+            <name>SportsHouse</name>
+            <address>3151 Edison Way, Redwood City, CA 94063, USA</address>
+            <weblink>https://www.sportshouse.us</weblink>
+            <phone>+1 (650) 362-4100</phone>
+            <id>SportsHouse</id>
+        </location>
+    </locations>
     <activities>
 
         <activityGroup name="Uniform fitting" requirement="one" >
@@ -120,10 +118,8 @@
                     <weekly>
                         <beginDate>2020-11-20</beginDate>
                         <endDate>2021-06-01</endDate>
-                        <daysOfWeek>
-                            <tuesday/>
-                            <thursday/>
-                        </daysOfWeek>
+                        <daysOfWeek>tuesday</daysOfWeek>
+                        <daysOfWeek>thursday</daysOfWeek>
                     </weekly>
                 </date>
                 <startTime>
@@ -143,9 +139,7 @@
                     <weekly>
                         <beginDate>2020-11-20</beginDate>
                         <endDate>2021-06-01</endDate>
-                        <daysOfWeek>
-                            <sunday/>
-                        </daysOfWeek>
+                        <daysOfWeek>sunday</daysOfWeek>
                     </weekly>
                 </date>
                 <startTime>

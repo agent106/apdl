@@ -3,6 +3,8 @@
            xmlns:apdl="http://apdl.org/APDL/v1"
            targetNamespace="http://apdl.org/APDL/v1">
 
+
+
     <xs:simpleType name="ActivityRequirementType">
         <xs:restriction base="xs:string">
             <xs:enumeration value="all" />
@@ -10,6 +12,18 @@
             <xs:enumeration value="oneOrMore" />
             <xs:enumeration value="zeroOrOne" />
             <xs:enumeration value="zeroOrMore" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="DayOfWeekType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="sunday" />
+            <xs:enumeration value="monday" />
+            <xs:enumeration value="tuesday" />
+            <xs:enumeration value="wednesday" />
+            <xs:enumeration value="thursday" />
+            <xs:enumeration value="friday" />
+            <xs:enumeration value="saturday" />
         </xs:restriction>
     </xs:simpleType>
 
@@ -61,20 +75,20 @@
         </xs:sequence>
     </xs:complexType>
 
+    <xs:simpleType name="TaskPriorityType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="critical" />
+            <xs:enumeration value="important" />
+            <xs:enumeration value="low" />
+        </xs:restriction>
+    </xs:simpleType>
+
     <xs:complexType name="TaskType">
         <xs:complexContent>
             <xs:extension base="apdl:ActivityTypeBase">
                 <xs:sequence>
                     <xs:element name="deadline" type="xs:dateTime" minOccurs="0" />
-                    <xs:element name="priority" minOccurs="0">
-                        <xs:simpleType>
-                            <xs:restriction base="xs:string">
-                                <xs:enumeration value="critical" />
-                                <xs:enumeration value="important" />
-                                <xs:enumeration value="low" />
-                            </xs:restriction>
-                        </xs:simpleType>
-                    </xs:element>
+                    <xs:element name="priority" type="apdl:TaskPriorityType" minOccurs="0" />
                 </xs:sequence>
             </xs:extension>
         </xs:complexContent>
@@ -93,19 +107,7 @@
                                         <xs:sequence>
                                             <xs:element name="beginDate" type="xs:date" minOccurs="0"/>
                                             <xs:element name="endDate" type="xs:date" minOccurs="0" />
-                                            <xs:element name="daysOfWeek" minOccurs="0">
-                                                <xs:complexType>
-                                                    <xs:choice maxOccurs="unbounded">
-                                                        <xs:element name="sunday" />
-                                                        <xs:element name="monday" />
-                                                        <xs:element name="tuesday" />
-                                                        <xs:element name="wednesday" />
-                                                        <xs:element name="thursday" />
-                                                        <xs:element name="friday" />
-                                                        <xs:element name="saturday" />
-                                                    </xs:choice>
-                                                </xs:complexType>
-                                            </xs:element>
+                                            <xs:element name="daysOfWeek" type="apdl:DayOfWeekType" maxOccurs="7" />
                                         </xs:sequence>
                                     </xs:complexType>
                                 </xs:element>
@@ -198,24 +200,18 @@
                         </xs:sequence>
                     </xs:complexType>
                 </xs:element>
-                <xs:element name="dictionary">
+                <xs:element name="locations" minOccurs="0">
                     <xs:complexType>
                         <xs:sequence>
-                            <xs:element name="locations" minOccurs="0">
+                            <xs:element name="location">
                                 <xs:complexType>
-                                    <xs:sequence>
-                                        <xs:element name="location">
-                                            <xs:complexType>
-                                                <xs:complexContent>
-                                                    <xs:extension base="apdl:LocationType">
-                                                        <xs:sequence>
-                                                            <xs:element name="id" type="xs:string" />
-                                                        </xs:sequence>
-                                                    </xs:extension>
-                                                </xs:complexContent>
-                                            </xs:complexType>
-                                        </xs:element>
-                                    </xs:sequence>
+                                    <xs:complexContent>
+                                        <xs:extension base="apdl:LocationType">
+                                            <xs:sequence>
+                                                <xs:element name="id" type="xs:string" />
+                                            </xs:sequence>
+                                        </xs:extension>
+                                    </xs:complexContent>
                                 </xs:complexType>
                             </xs:element>
                         </xs:sequence>
